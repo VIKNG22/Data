@@ -1,0 +1,43 @@
+const notas = [7, 9, 5, 8, 10, 6, 4, 9, 2, 8, 7.5];
+
+function analisarNotas(notas) {
+    let soma = 0;
+    let contador = 0;
+    let media = 0;
+    let maior = 0;
+    let menor = notas[0];
+    let acima = 0;
+
+    for (let i = 0 ; i < notas.length ; i++) {
+        contador++ ;
+        soma += notas[i];
+        media = soma / contador;
+
+        if (notas[i] > maior) {
+            maior = notas[i]
+        } 
+        if (menor > notas[i]) {
+            menor = notas[i]
+        }
+        
+    }
+
+    for (let j = 0 ; j < notas.length ; j++ ) {
+            if (notas[j] > media) {
+                acima++
+            }
+    }
+    
+    return {
+        media: media ,
+        maiorNota: maior ,
+        menorNota: menor ,
+        acimaDaMedia: acima
+    }
+} 
+
+let resultado = analisarNotas(notas);
+console.log(resultado.media);
+console.log(resultado.maiorNota);
+console.log(resultado.menorNota);
+console.log(resultado.acimaDaMedia);
